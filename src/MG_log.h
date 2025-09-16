@@ -70,12 +70,12 @@ _MG_log(
     return done;
 }
 
-#define LOG(category, str, ...) do\
+#define LOG(category, ...) do\
     {\
         if (_MG_log_config[category])\
         {\
             _MG_log_count++;\
-            _MG_log(category, _MG_log_count, __FILE__, __LINE__, str, __VA_ARGS__);\
+            _MG_log(category, _MG_log_count, __FILE__, __LINE__, __VA_ARGS__);\
         }\
     } while(0)
 
@@ -101,20 +101,20 @@ _MG_log(
  * LOG-0001: INFO     src/main.c:7:
  *      2+2 = 4
  */
-#define LOG_INFO(str, ...) LOG(_MG_LOG_INFO, str, __VA_ARGS__)
-#define LOG_UI(str, ...)   LOG(_MG_LOG_UI, str, __VA_ARGS__)
-#define LOG_SDL(str, ...)  LOG(_MG_LOG_SDL, str, __VA_ARGS__)
-#define LOG_ERROR(str, ...) LOG(_MG_LOG_ERROR, str, __VA_ARGS__)
+#define LOG_INFO(...)   LOG(_MG_LOG_INFO,  __VA_ARGS__)
+#define LOG_UI(...)     LOG(_MG_LOG_UI,    __VA_ARGS__)
+#define LOG_SDL(...)    LOG(_MG_LOG_SDL,   __VA_ARGS__)
+#define LOG_ERROR(...)  LOG(_MG_LOG_ERROR, __VA_ARGS__)
 
 /** Turn any logging category on/off at any point in the application.
  */
-#define LOG_INFO_ON  _MG_log_config[_MG_LOG_INFO] = true
-#define LOG_INFO_OFF _MG_log_config[_MG_LOG_INFO] = false
-#define LOG_UI_ON  _MG_log_config[_MG_LOG_UI] = true
-#define LOG_UI_OFF _MG_log_config[_MG_LOG_UI] = false
-#define LOG_SDL_ON  _MG_log_config[_MG_LOG_SDL] = true
-#define LOG_SDL_OFF _MG_log_config[_MG_LOG_SDL] = false
-#define LOG_ERROR_ON  _MG_log_config[_MG_LOG_ERROR] = true
-#define LOG_ERROR_OFF _MG_log_config[_MG_LOG_ERROR] = false
+#define LOG_INFO_ON     _MG_log_config[_MG_LOG_INFO] = true
+#define LOG_INFO_OFF    _MG_log_config[_MG_LOG_INFO] = false
+#define LOG_UI_ON       _MG_log_config[_MG_LOG_UI] = true
+#define LOG_UI_OFF      _MG_log_config[_MG_LOG_UI] = false
+#define LOG_SDL_ON      _MG_log_config[_MG_LOG_SDL] = true
+#define LOG_SDL_OFF     _MG_log_config[_MG_LOG_SDL] = false
+#define LOG_ERROR_ON    _MG_log_config[_MG_LOG_ERROR] = true
+#define LOG_ERROR_OFF   _MG_log_config[_MG_LOG_ERROR] = false
 
 

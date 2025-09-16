@@ -5,6 +5,11 @@
 int
 main(void)
 {
+    LOG_INFO("Info");
+    LOG_UI("UI thing");
+    LOG_SDL("SDL stuff");
+    LOG_ERROR("Error");
+
     LOG_INFO_OFF;
     LOG_UI_OFF;
     LOG_SDL_OFF;
