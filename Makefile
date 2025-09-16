@@ -7,6 +7,7 @@ run: build/main
 build:
 	mkdir -p build
 
+.PHONY: build/main
 build/main: src/main.c | build
 	$(CC) -E $< -o $@.i
 	$(CC) $(CFLAGS) $< -o $@
